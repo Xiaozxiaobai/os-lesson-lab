@@ -78,6 +78,14 @@ ALL TESTS PASSED
 
 只要你的程序运行行为与上述描述一致（尽管具体的进程 ID 可能会有所不同），就说明你的实现是正确的。
 
+运行 `make grade` 后看到如下输出，说明你的实现通过了测试。
+```
+== Test trace 32 grep == trace 32 grep: OK (5.9s) 
+== Test trace all grep == trace all grep: OK (0.9s) 
+== Test trace nothing == trace nothing: OK 
+== Test trace children == trace children: OK (40.1s)
+```
+
 ------
 
 **实现提示**
@@ -162,6 +170,19 @@ page table 0x80409000
 在上面的输出示例中，顶层页表页中映射了第 0 项和第 255 项；对于第 0 项指向的下一级页表中，仅第 0 项被映射；而该页表中的第 0 项再进一步指向底层页表，其中第 0、1、2 项被映射。
 
 你实现的代码可能会打印出与示例中不同的物理地址，但映射的项数以及它们对应的虚拟地址索引应当是一致的。
+
+运行 `make grade` 后看到如下输出，说明你的实现通过了测试。
+```
+== Test pte printout == pte printout: OK (0.9s)
+```
+
+同时，你需要保证实验的两个部分同时通过 `usertests` 测试，通过后你会得到实验的满分。
+```
+== Test usertests == (47.2s) 
+== Test   usertests: all tests == 
+  usertests: all tests: OK 
+Score: 100/100
+```
 
 ------
 
