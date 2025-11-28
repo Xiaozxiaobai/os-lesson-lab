@@ -20,7 +20,7 @@ VAL_RE = "(0x[0-9a-f]+)"
 INDENT_RE = r"\s*\.\.\s*"
 INDENT_ESC = "\\\s*\.\.\\\s*"
 
-@test(10, "trace 32 grep")
+@test(15, "trace 32 grep")
 def test_trace_32_grep():
     r.run_qemu(shell_script([
         'trace 32 grep hello README'
@@ -28,7 +28,7 @@ def test_trace_32_grep():
     r.match('^\\d+: syscall read -> 1023')
     r.match('^\\d+: syscall read -> 0')
 
-@test(10, "trace all grep")
+@test(15, "trace all grep")
 def test_trace_all_grep():
     r.run_qemu(shell_script([
         'trace 2147483647 grep hello README'
@@ -40,14 +40,14 @@ def test_trace_all_grep():
     r.match('^\\d+: syscall read -> 0')
     r.match('^\\d+: syscall close -> 0')
 
-@test(10, "trace nothing")
+@test(15, "trace nothing")
 def test_trace_nothing():
     r.run_qemu(shell_script([
         'grep hello README'
     ]))
     r.match(no=[".* syscall .*"])
 
-@test(10, "trace children")
+@test(15, "trace children")
 def test_trace_children():
     r.run_qemu(shell_script([
         'trace 2 usertests forkforkfork'
@@ -59,7 +59,7 @@ def test_trace_children():
     r.match('^ALL TESTS PASSED')
 
 
-@test(40, "pte printout")
+@test(20, "pte printout")
 def test_pteprint():
     first = True
     r.run_qemu(shell_script([
