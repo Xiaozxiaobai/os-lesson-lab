@@ -932,7 +932,7 @@ impl PageTable {
                     println!(".. ..{}: pte {:#x} pa {:p}", idx, pte.data, pte.as_page_table());
                     (unsafe { &*pte.as_page_table() }).vm_print(2);
                 }
-                if level == 1 {
+                if level == 2 {
                     println!(".. .. ..{}: pte {:#x} pa {:p}", idx, pte.data, pte.as_page_table());
                 }
             }
