@@ -5,13 +5,16 @@ from gradelib import *
 
 r = Runner(save("xv6.out"))
 
-PTE_PRINT = """page table 0x80407000
-..0: pte 0x20102c01 pa 0x8040b000
-.. ..0: pte 0x20103001 pa 0x8040c000
-.. .. ..0: pte 0x20103001 pa 0x8040c000
-..255: pte 0x20102001 pa 0x80408000
-.. ..511: pte 0x20102401 pa 0x80409000
-.. .. ..511: pte 0x20102401 pa 0x80409000"""
+PTE_PRINT = """page table 0x803fd000
+..0: pte 0x200fec01 pa 0x803fb000
+.. ..0: pte 0x200ff001 pa 0x803fc000
+.. .. ..0: pte 0x200fe85f pa 0x803fa000
+.. .. ..1: pte 0x20101c0f pa 0x80407000
+.. .. ..2: pte 0x201020df pa 0x80408000
+..255: pte 0x20101801 pa 0x80406000
+.. ..511: pte 0x200fe401 pa 0x803f9000
+.. .. ..510: pte 0x200fe0c7 pa 0x803f8000
+.. .. ..511: pte 0x2000044b pa 0x80001000"""
 
 VAL_RE = "(0x[0-9a-f]+)"
 INDENT_RE = r"\s*\.\.\s*"
